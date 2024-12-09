@@ -113,59 +113,72 @@ namespace csh_wf_calculator
         // Called when = is pressed
         public static string CalcEqual()
         {
-            bool validEquation = false;
+            //bool validEquation = false;
 
-            if (stringAnswer != "")
+            //if (stringAnswer != "")
+            if (string.IsNullOrEmpty(stringAnswer) || calcOperation == Operator.eUnknown)
+                return stringAnswer;
+
+            // chain calculation
+            if (!secondNumberAdded)
             {
                 secondNumber = Convert.ToDouble(stringAnswer);
                 secondNumberAdded = true;
-
-                switch (calcOperation)
-                {
-                    case Operator.eUnknown:
-                        validEquation = false;
-                        break;
-
-                    case Operator.eAdd:
-                        numericAnswer = firstNumber + secondNumber;
-                        validEquation = true;
-                        break;
-
-                    case Operator.eSubtract:
-                        numericAnswer = firstNumber - secondNumber;
-                        validEquation = true;
-                        break;
-
-                    case Operator.eMultiply:
-                        numericAnswer = firstNumber * secondNumber;
-                        validEquation = true;
-                        break;
-
-                    case Operator.eDivide:
-                        if (secondNumber != 0)
-                        {
-                            numericAnswer = firstNumber / secondNumber;
-                            validEquation = true;
-                        }
-                        else
-                        {
-                            return "Error"; // Division by zero 
-                        }
-                        break;
-
-                    case Operator.ePower: 
-                        numericAnswer = Math.Pow(firstNumber, secondNumber); // Power (x^N)
-                        validEquation = true;
-                        break;
-
-                    default:
-                        validEquation = false;
-                        break;
-                }
-
-                if (validEquation)
-                    stringAnswer = Convert.ToString(numericAnswer);
             }
+
+
+            switch (calcOperation)
+            {
+                case Operator.eUnknown:
+                    //validEquation = false;
+                    break;
+
+                case Operator.eAdd:
+                    numericAnswer = firstNumber + secondNumber;
+                    //validEquation = true;
+                    break;
+
+                case Operator.eSubtract:
+                    numericAnswer = firstNumber - secondNumber;
+                    //validEquation = true;
+                    break;
+
+                case Operator.eMultiply:
+                    numericAnswer = firstNumber * secondNumber;
+                    //validEquation = true;
+                    break;
+
+                case Operator.eDivide:
+                    if (secondNumber != 0)
+                    {
+                        numericAnswer = firstNumber / secondNumber;
+                        //validEquation = true;
+                    }
+                    else
+                    {
+                        return "Error"; // Division by zero 
+                    }
+                    break;
+
+                case Operator.ePower: 
+                    numericAnswer = Math.Pow(firstNumber, secondNumber); // Power (x^N)
+                    //validEquation = true;
+                    break;
+
+                default:
+                    //validEquation = false;
+                    //break;
+                    return stringAnswer;
+
+                    //if (validEquation)
+                    //    stringAnswer = Convert.ToString(numericAnswer);
+            }
+
+            // chain calculation
+            firstNumber = numericAnswer;
+
+            stringAnswer = numericAnswer.ToString();
+            //secondNumberAdded = false;
 
             return (stringAnswer);
         }
@@ -235,6 +248,9 @@ namespace csh_wf_calculator
             if (number != Math.Floor(number))
                 return "Error"; //Factorial is only defined for integers
 
+            if (number > 20)
+                return "Error"; //Factorial is too large for calculation
+
             long factorial = 1;
             //double factorial = 1;
 
@@ -243,6 +259,32 @@ namespace csh_wf_calculator
 
             return factorial.ToString();
         }
+        //
+        public static async Task<string> CalcFactorialAsync(double number)
+        {
+            return await Task.Run(() =>
+            {
+                // Simulate long-running operation
+                System.Threading.Thread.Sleep(3000);
+
+                if (number < 0)
+                    return "Error";
+                if (number != Math.Floor(number))
+                    return "Error";
+                if (number > 20)
+                    return "Error";
+                long factorial = 1;
+                for (int i = 1; i <= (int)number; i++)
+                    factorial *= i;
+                
+                string result = factorial.ToString();
+
+                // TODO: Update UI by callback
+                //updateCallback?.Invoke(result);
+                return $"Factorial: {result}";
+            });
+        }
+
 
         // Quadratic Equation
         public static string CalcQuadEquation(double a, double b, double c)

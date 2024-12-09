@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
@@ -61,6 +62,7 @@
             this.buttonEquals = new System.Windows.Forms.Button();
             this.buttonMultiply = new System.Windows.Forms.Button();
             this.buttonClear = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -364,6 +366,7 @@
             this.buttonDivide.Size = new System.Drawing.Size(50, 36);
             this.buttonDivide.TabIndex = 13;
             this.buttonDivide.Text = "÷";
+            this.toolTip1.SetToolTip(this.buttonDivide, "Divide X by Y");
             this.buttonDivide.UseVisualStyleBackColor = true;
             this.buttonDivide.Click += new System.EventHandler(this.buttonDivide_Click);
             // 
@@ -375,6 +378,7 @@
             this.buttonMinus.Size = new System.Drawing.Size(50, 36);
             this.buttonMinus.TabIndex = 14;
             this.buttonMinus.Text = "-";
+            this.toolTip1.SetToolTip(this.buttonMinus, "Subtract Y from X");
             this.buttonMinus.UseVisualStyleBackColor = true;
             this.buttonMinus.Click += new System.EventHandler(this.buttonMinus_Click);
             // 
@@ -386,6 +390,7 @@
             this.buttonPlus.Size = new System.Drawing.Size(50, 38);
             this.buttonPlus.TabIndex = 15;
             this.buttonPlus.Text = "+";
+            this.toolTip1.SetToolTip(this.buttonPlus, "Add X and Y");
             this.buttonPlus.UseVisualStyleBackColor = true;
             this.buttonPlus.Click += new System.EventHandler(this.buttonPlus_Click);
             // 
@@ -397,6 +402,7 @@
             this.buttonEquals.Size = new System.Drawing.Size(54, 38);
             this.buttonEquals.TabIndex = 16;
             this.buttonEquals.Text = "=";
+            this.toolTip1.SetToolTip(this.buttonEquals, "Calculate result");
             this.buttonEquals.UseVisualStyleBackColor = true;
             this.buttonEquals.Click += new System.EventHandler(this.buttonEquals_Click);
             // 
@@ -408,6 +414,7 @@
             this.buttonMultiply.Size = new System.Drawing.Size(50, 36);
             this.buttonMultiply.TabIndex = 17;
             this.buttonMultiply.Text = "×";
+            this.toolTip1.SetToolTip(this.buttonMultiply, "Multiply X by Y");
             this.buttonMultiply.UseVisualStyleBackColor = true;
             this.buttonMultiply.Click += new System.EventHandler(this.buttonMultiply_Click);
             // 
@@ -420,6 +427,7 @@
             this.buttonClear.Size = new System.Drawing.Size(54, 36);
             this.buttonClear.TabIndex = 18;
             this.buttonClear.Text = "C";
+            this.toolTip1.SetToolTip(this.buttonClear, "Clear input/result");
             this.buttonClear.UseVisualStyleBackColor = false;
             this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
             // 
@@ -482,6 +490,7 @@
         private System.Windows.Forms.Button buttonClear;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem11;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem12;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
 

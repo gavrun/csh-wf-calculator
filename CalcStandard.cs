@@ -139,7 +139,7 @@ namespace csh_wf_calculator
         {
             textBoxOutResult.Text = CalcEngine.CalcEqual();
             
-            CalcEngine.CalcReset(); // X + Y then keep operating by X 
+            //CalcEngine.CalcReset(); // X + Y then keep operating by X 
         }
 
         // Clear result

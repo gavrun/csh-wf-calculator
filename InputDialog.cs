@@ -83,9 +83,22 @@ namespace csh_wf_calculator
             {
                 e.Handled = true; 
             }
-            
+        }
 
+        private void textBoxB_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
+        }
 
+        private void textBoxC_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+            }
         }
     }
 }

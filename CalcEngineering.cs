@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.LinkLabel;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
 namespace csh_wf_calculator
@@ -153,15 +154,32 @@ namespace csh_wf_calculator
             textBoxOutResult.Text = CalcEngine.CalcSquared(input);
         }
 
-        private void buttonFactorial_Click(object sender, EventArgs e)
+        //private void buttonFactorial_Click(object sender, EventArgs e)
+        //{
+        //    double input = Convert.ToDouble(textBoxOutResult.Text);
+        //    textBoxOutResult.Text = CalcEngine.CalcFactorial(input);
+        //}
+
+        //Ctrl+Click background
+        private async void buttonFactorial_Click(object sender, EventArgs e)
         {
             double input = Convert.ToDouble(textBoxOutResult.Text);
-            textBoxOutResult.Text = CalcEngine.CalcFactorial(input);
+
+            // Ctrl is pressed async 
+            if ((ModifierKeys & Keys.Control) == Keys.Control)
+            {
+                textBoxOutFactorial.Text = "Calculating";
+                
+                string result = await CalcEngine.CalcFactorialAsync(input);
+                textBoxOutFactorial.Text = result;
+            }
+            else
+            {
+                textBoxOutResult.Text = CalcEngine.CalcFactorial(input);
+            }
         }
 
         // Engineering Operators with two operands
-
-        // Power (x^N)
         private void buttonPower_Click(object sender, EventArgs e)
         {
             // base then exp
@@ -175,7 +193,7 @@ namespace csh_wf_calculator
         {
             textBoxOutResult.Text = CalcEngine.CalcEqual();
 
-            CalcEngine.CalcReset(); // X + Y then keep operating by X 
+            //CalcEngine.CalcReset(); // X + Y then keep operating by X 
         }
 
         // Clear result
@@ -201,7 +219,7 @@ namespace csh_wf_calculator
                     string result = CalcEngine.CalcQuadEquation(a, b, c);
                     textBoxOutResult.Text = result;
 
-                    MessageBox.Show("DEBUG other examples:\n" +
+                    MessageBox.Show("DEBUG examples:\n" +
                                     "No real roots: a = 1, b = 2, c = 3\n" +
                                     "One root (double): a = 1, b = -4, c = 4 (x1 = x2 = 2)\n" +
                                     "Two distinct roots: a = 1, b = -5, c = 6 (x1 = 3, x2 = 2)\n" +

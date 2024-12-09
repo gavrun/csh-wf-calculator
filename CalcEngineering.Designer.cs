@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.textBoxOutResult = new System.Windows.Forms.TextBox();
             this.buttonSeven = new System.Windows.Forms.Button();
@@ -69,6 +70,7 @@
             this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem12 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -272,6 +274,7 @@
             this.buttonDivide.Size = new System.Drawing.Size(50, 37);
             this.buttonDivide.TabIndex = 13;
             this.buttonDivide.Text = "÷";
+            this.toolTip1.SetToolTip(this.buttonDivide, "Divide X by Y");
             this.buttonDivide.UseVisualStyleBackColor = true;
             this.buttonDivide.Click += new System.EventHandler(this.buttonDivide_Click);
             // 
@@ -283,6 +286,7 @@
             this.buttonMinus.Size = new System.Drawing.Size(50, 37);
             this.buttonMinus.TabIndex = 14;
             this.buttonMinus.Text = "-";
+            this.toolTip1.SetToolTip(this.buttonMinus, "Subtract Y from X");
             this.buttonMinus.UseVisualStyleBackColor = true;
             this.buttonMinus.Click += new System.EventHandler(this.buttonMinus_Click);
             // 
@@ -294,6 +298,7 @@
             this.buttonPlus.Size = new System.Drawing.Size(50, 38);
             this.buttonPlus.TabIndex = 15;
             this.buttonPlus.Text = "+";
+            this.toolTip1.SetToolTip(this.buttonPlus, "Add X and Y");
             this.buttonPlus.UseVisualStyleBackColor = true;
             this.buttonPlus.Click += new System.EventHandler(this.buttonPlus_Click);
             // 
@@ -305,6 +310,7 @@
             this.buttonEquals.Size = new System.Drawing.Size(54, 38);
             this.buttonEquals.TabIndex = 16;
             this.buttonEquals.Text = "=";
+            this.toolTip1.SetToolTip(this.buttonEquals, "Calculate result");
             this.buttonEquals.UseVisualStyleBackColor = true;
             this.buttonEquals.Click += new System.EventHandler(this.buttonEquals_Click);
             // 
@@ -316,6 +322,7 @@
             this.buttonMultiply.Size = new System.Drawing.Size(50, 37);
             this.buttonMultiply.TabIndex = 17;
             this.buttonMultiply.Text = "×";
+            this.toolTip1.SetToolTip(this.buttonMultiply, "Multiply X by Y");
             this.buttonMultiply.UseVisualStyleBackColor = true;
             this.buttonMultiply.Click += new System.EventHandler(this.buttonMultiply_Click);
             // 
@@ -328,6 +335,7 @@
             this.buttonClear.Size = new System.Drawing.Size(54, 37);
             this.buttonClear.TabIndex = 18;
             this.buttonClear.Text = "C";
+            this.toolTip1.SetToolTip(this.buttonClear, "Clear input/result");
             this.buttonClear.UseVisualStyleBackColor = false;
             this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
             // 
@@ -337,8 +345,10 @@
             this.textBoxOutFactorial.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBoxOutFactorial.Location = new System.Drawing.Point(3, 46);
             this.textBoxOutFactorial.Name = "textBoxOutFactorial";
+            this.textBoxOutFactorial.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.textBoxOutFactorial.Size = new System.Drawing.Size(278, 20);
             this.textBoxOutFactorial.TabIndex = 19;
+            this.textBoxOutFactorial.Text = "Ctrl+Click to calculate N! in background";
             // 
             // buttonReciprocal
             // 
@@ -348,6 +358,7 @@
             this.buttonReciprocal.Size = new System.Drawing.Size(50, 37);
             this.buttonReciprocal.TabIndex = 20;
             this.buttonReciprocal.Text = "1/x";
+            this.toolTip1.SetToolTip(this.buttonReciprocal, "Invert X");
             this.buttonReciprocal.UseVisualStyleBackColor = true;
             this.buttonReciprocal.Click += new System.EventHandler(this.buttonReciprocal_Click);
             // 
@@ -359,6 +370,7 @@
             this.buttonSquareRoot.Size = new System.Drawing.Size(50, 37);
             this.buttonSquareRoot.TabIndex = 21;
             this.buttonSquareRoot.Text = "Sqrt2";
+            this.toolTip1.SetToolTip(this.buttonSquareRoot, "Square root of X");
             this.buttonSquareRoot.UseVisualStyleBackColor = true;
             this.buttonSquareRoot.Click += new System.EventHandler(this.buttonSquareRoot_Click);
             // 
@@ -370,6 +382,7 @@
             this.buttonSquared.Size = new System.Drawing.Size(50, 37);
             this.buttonSquared.TabIndex = 22;
             this.buttonSquared.Text = "x^2";
+            this.toolTip1.SetToolTip(this.buttonSquared, "X to the power of 2");
             this.buttonSquared.UseVisualStyleBackColor = true;
             this.buttonSquared.Click += new System.EventHandler(this.buttonSquared_Click);
             // 
@@ -381,6 +394,7 @@
             this.buttonPower.Size = new System.Drawing.Size(54, 37);
             this.buttonPower.TabIndex = 23;
             this.buttonPower.Text = "x^n";
+            this.toolTip1.SetToolTip(this.buttonPower, "X to the power of Y");
             this.buttonPower.UseVisualStyleBackColor = true;
             this.buttonPower.Click += new System.EventHandler(this.buttonPower_Click);
             // 
@@ -392,6 +406,7 @@
             this.buttonFactorial.Size = new System.Drawing.Size(54, 37);
             this.buttonFactorial.TabIndex = 25;
             this.buttonFactorial.Text = "n!";
+            this.toolTip1.SetToolTip(this.buttonFactorial, "Factorial of X; Ctrl+Click background");
             this.buttonFactorial.UseVisualStyleBackColor = true;
             this.buttonFactorial.Click += new System.EventHandler(this.buttonFactorial_Click);
             // 
@@ -403,6 +418,7 @@
             this.buttonQEquation.Size = new System.Drawing.Size(54, 37);
             this.buttonQEquation.TabIndex = 26;
             this.buttonQEquation.Text = "QEq";
+            this.toolTip1.SetToolTip(this.buttonQEquation, "Caclulate quadratic equation");
             this.buttonQEquation.UseVisualStyleBackColor = true;
             this.buttonQEquation.Click += new System.EventHandler(this.buttonQEquation_Click);
             // 
@@ -414,6 +430,7 @@
             this.buttonCubicRoot.Size = new System.Drawing.Size(50, 37);
             this.buttonCubicRoot.TabIndex = 27;
             this.buttonCubicRoot.Text = "Sqrt3";
+            this.toolTip1.SetToolTip(this.buttonCubicRoot, "Cubic root of X");
             this.buttonCubicRoot.UseVisualStyleBackColor = true;
             this.buttonCubicRoot.Click += new System.EventHandler(this.buttonCubicRoot_Click);
             // 
@@ -590,5 +607,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem9;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem10;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem12;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
